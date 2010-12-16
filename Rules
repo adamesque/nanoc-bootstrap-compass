@@ -6,6 +6,11 @@ Compass.add_project_configuration('config.rb')
 
 ### Compilation rules
 
+compile '/style/_*/' do
+	# don't compile partials, so return nil
+  nil
+end
+
 compile '/style/*/' do
   filter :sass, Compass.sass_engine_options
 end
@@ -18,7 +23,7 @@ end
 ### Routing rules
 
 route '/style/_*/' do
-  # don't output partials, so return nil
+  # don't output partials either
   nil
 end
 
